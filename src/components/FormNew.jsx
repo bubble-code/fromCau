@@ -10,9 +10,10 @@ import {
     Option
 } from "@material-tailwind/react";
 
-import axios from "axios";
+import { useFetch } from "../hooks/fetchook";
 
 export default function FormNew() {
+    const { createTask, isLoading } = useFetch()
 
     const nameRef = useRef(null);
     const lastNameRef = useRef(null);
@@ -21,17 +22,20 @@ export default function FormNew() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        const task = { name: nameRef.current.value, lastName: lastNameRef.current.value, telef: telepRef.current.value, email: emailRef.current.value };
+        const task = { name: nameRef.current.value, lastName: lastNameRef.current, email: emailRef.current.value };
+        // console.log(task)
 
-        axios.post('http://10.0.0.243:3000/add', task)
-            .then((response) => {
-                console.log(response.data);
-                // setTitle('');
-                // setDescription('');
-            })
-            .catch((error) => {
-                console.log(error);
-            });
+        createTask(task)
+
+        // axios.post('http://10.0.0.243:3000/add', task)
+        //     .then((response) => {
+        //         console.log(response.data);
+        //         // setTitle('');
+        //         // setDescription('');
+        //     })
+        //     .catch((error) => {
+        //         console.log(error);
+        //     });
     };
 
     return (
@@ -52,7 +56,7 @@ export default function FormNew() {
                 </div>
                 <div className="mb-4 text-left">
                     <div className="">
-                        <Select label="Select Version">
+                        <Select label="Select Version" ref={lastNameRef} >
                             <Option>Material Tailwind HTML</Option>
                             <Option>Material Tailwind React</Option>
                             <Option>Material Tailwind Vue</Option>
@@ -87,7 +91,7 @@ export default function FormNew() {
                         Descripcion
                     </Typography>
                     <div className="w-90">
-                        <Textarea label="" rows={6} />
+                        <Textarea label="" rows={6} ref={emailRef} />
                     </div>
                 </div>
 
@@ -102,6 +106,7 @@ export default function FormNew() {
                     </Button>
                 </div>
             </form>
+            {isLoading ? <h1>Loading</h1> : <h1>Nada</h1>}
         </Card>
     );
 }
