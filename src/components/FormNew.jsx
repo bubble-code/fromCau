@@ -96,7 +96,8 @@ export default function FormNew() {
                 </div>
 
                 <div className='text-right'>
-                    <Button variant="gradient" type='submit' size="sm" className="hidden lg:inline-block ml-2 px-4 py-2 text-gray-950 rounded-md shadow-sm focus:outline-none focus:ring border border-cyan-400" onClick={(e) => handleSubmit(e)} disabled={false}>
+                    <Button variant="gradient" type='submit' size="sm" className="hidden lg:inline-block ml-2 px-4 py-2 text-gray-950 rounded-md shadow-sm focus:outline-none focus:ring border
+                     border-cyan-400" onClick={(e) => handleSubmit(e)} disabled={false}>
                         <Typography
                             variant="small"
                             color="blue-gray"

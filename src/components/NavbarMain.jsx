@@ -8,7 +8,6 @@ import {
     Button,
     IconButton,
 } from "@material-tailwind/react";
-import { NavLink } from "react-router-dom";
 // import './style.css'
 
 export default function NavbarMain() {
@@ -29,64 +28,25 @@ export default function NavbarMain() {
                 color="blue-gray"
                 className="p-1 font-normal"
             >
-                <NavLink className="flex items-center" to={'nuevo'}>
-                    Nuevo
-                </NavLink>
-            </Typography>
-            <Typography
-                variant="small"
-                color="blue-gray"
-                className="p-1 font-normal"
-            >
-                <NavLink className="flex items-center" to={'abiertos'}>
-                    Abiertos
-                </NavLink>
-            </Typography>
-            <Typography
-                variant="small"
-                color="blue-gray"
-                className="p-1 font-normal"
-            >
-                <NavLink to={'cargar'} className="flex items-center">
-                    Buscar
-                </NavLink>
-            </Typography>
-            <Typography
-                variant="small"
-                color="blue-gray"
-                className="p-1 font-normal"
-            >
-                <NavLink to={'busqueda'} className="flex items-center">
-                    Busqueda
-                </NavLink>
-            </Typography>
-            <Typography
-                variant="small"
-                color="blue-gray"
-                className="p-1 font-normal"
-            >
-                <NavLink to={'tecnicos'} className="flex items-center" >
-                    Config
-                </NavLink>
-            </Typography>
+                
+            </Typography>           
         </nav>
     );
 
     return (
-        <Navbar className="py-2 px-4 lg:px-8 lg:py-4 text-gray-950">
+        <Navbar className="py-2 px-4 lg:px-8 lg:py-4 text-gray-950 bg-blue-gray-500">
             <nav className="container mx-auto flex items-center justify-between">
                 <Typography
                     as="a"
                     href="#"
                     variant="small"
-                    className="mr-4 cursor-pointer py-1.5 font-normal"
-                >
-                    <NavLink to={'/'}>Inicio</NavLink>
+                    className="mr-4 cursor-pointer py-1.5 font-normal uppercase"
+                >Sitio de Consulta de Solmicro
                 </Typography>
-                <div className="hidden lg:block">{navList}</div>
+                {/* <div className="hidden lg:block">{navList}</div>
                 <Button variant="gradient" size="sm" className="hidden lg:inline-block text-gray-950">
                     <span>Logout</span>
-                </Button>
+                </Button> */}
                 <IconButton
                     variant="text"
                     className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
