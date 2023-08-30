@@ -9,7 +9,7 @@ export const useFetchQuery = () => {
     const fetchData = async (query) => {
         try {
             setLoading(true)
-            const res = await axios.get('http://127.0.0.1:5000')
+            const res = await axios.post('http://127.0.0.1:5000',{query})
             setResponse(res.data)
             setLoading(false)
         } catch (err) {

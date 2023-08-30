@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Textarea, Button } from "@material-tailwind/react";
+import { useFetchQuery } from "../hooks/fetchQuery";
 
 export const FormQuery = ({ fetQuery }) => {
   const [inputValue, setInputValue] = useState("");
@@ -8,12 +9,11 @@ export const FormQuery = ({ fetQuery }) => {
     setInputValue(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // Realiza las acciones que deseas al enviar el formulario, por ejemplo, enviar datos al servidor
-    console.log("Valor enviado:", inputValue);
-    fetQuery(inputValue);
+    await fetQuery(inputValue);
   };
+  
   return (
     <form
       className="flex items-start gap-4 justify-start"
